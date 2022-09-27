@@ -259,7 +259,7 @@ def render_csv(file, columns = None, sort_by=None, average_by=None, skip=0):
     if sort_by:
         df = df.sort_values(by=sort_by)
     if average_by:
-        df = df.groupby(average_by).mean()
+        df = df.groupby(average_by).mean(numeric_only=True)
         df[average_by] = df.index
     if columns:
         df = df[columns]
